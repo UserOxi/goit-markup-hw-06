@@ -39,7 +39,7 @@
     0px 2px 2px rgba(0, 0, 0, 0.12);
   --card-team-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-  --hov-btn-studio: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  --box-shadow-btn: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
   /* card-set */
   --gap: 30px;
@@ -99,6 +99,14 @@ ul {
 }
 
 .btn-studio {
+  transition: background-color var(--hov-anim);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+
   min-width: 200px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -108,20 +116,13 @@ ul {
   line-height: 1.88;
   letter-spacing: 0.06em;
   color: var(--txt-light-cl);
+  box-shadow: var(--box-shadow-btn);
   background-color: var(--accent-txt-cl);
 }
 
-.btn-hero,
-.btn-form-modal {
-  transition: background-color var(--hov-anim), box-shadow var(--hov-anim);
-}
-
-.btn-hero:hover,
-.btn-hero:focus,
-.btn-form-modal:hover,
-.btn-form-modal:focus {
+.btn-studio:hover,
+.btn-studio:focus {
   background-color: var(--btn-hover-cl);
-  box-shadow: var(--hov-btn-studio);
 }
 
 .title {
@@ -329,11 +330,6 @@ ul {
   color: var(--txt-light-cl);
 }
 
-.btn-hero {
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
 /* Features */
 
 .features {
@@ -489,6 +485,8 @@ ul {
 .footer-container {
   display: flex;
   align-items: baseline;
+
+  gap: 70px;
 }
 
 .logo-footer {
@@ -516,13 +514,6 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 9px;
-}
-
-.second-footer {
-  display: flex;
-  flex-direction: column;
-
-  margin-left: 70px;
 }
 
 .title-footer {
@@ -557,23 +548,14 @@ ul {
   gap: 12px;
 }
 
-.btn-footer {
-  transition: box-shadow var(--hov-anim);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  padding-left: 28px;
-  padding-right: 28px;
-
-  fill: var(--txt-light-cl);
+.footer-item:last-child {
+  margin-left: auto;
 }
 
-.btn-footer:hover,
-.btn-footer:focus {
-  box-shadow: var(--hov-btn-studio);
+.btn-icon {
+  margin-left: 10px;
+
+  fill: currentColor;
 }
 
 .footer-input {
@@ -707,9 +689,8 @@ ul {
 }
 
 .form-group-label {
-  position: relative;
-
-  display: block;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 10px;
   text-align: left;
 }
@@ -725,6 +706,10 @@ ul {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.01em;
+}
+
+.form-input-group {
+  position: relative;
 }
 
 .modal-form-input {
@@ -748,6 +733,11 @@ ul {
 
 .modal-icon {
   transition: fill var(--hov-anim);
+
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
 }
 
 .modal-form-input:focus-within + .modal-icon,
@@ -778,18 +768,14 @@ ul {
   color: rgba(117, 117, 117, 0.5);
 }
 
-.modal-icon {
-  position: absolute;
-  bottom: 11px;
-  left: 12px;
-}
-
 .form-agreement-label {
   display: flex;
   align-items: center;
   justify-content: center;
 
   margin-bottom: 30px;
+
+  cursor: pointer;
 }
 
 .agreement-form-input + .agreement-form-icon > .icon-check {
